@@ -1,66 +1,273 @@
 @import "tailwindcss";
 
-html { scroll-behavior: smooth; }
+/* ── Theme ────────────────────────────────────────────────────────────────
+   Light is the base palette. Dark is applied by [data-theme="dark"], which
+   an inline script in the root layout sets before first paint.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+  --bg: #fbf9f5;
+  --fg: #1f1e1b;
+  --muted: #6b6862;
+  --rule: #e2ded4;
+  --toggle-track: #cfcabd;
+  --toggle-knob: #fbf9f5;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1c1c1a;
+  --fg: #ece7dd;
+  --muted: #96918a;
+  --rule: #33322e;
+  --toggle-track: #5c5a54;
+  --toggle-knob: #ece7dd;
+}
 
 body {
-  background-color: #04080f;
-  color: #f0f0f0;
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif), Iowan Old Style, Palatino, Georgia, serif;
+  font-size: 19px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Space Mono for all mono/tech elements */
-.font-mono, code, kbd, pre, [class*="font-mono"] {
-  font-family: var(--font-mono), "Courier New", monospace !important;
+/* ── Layout ───────────────────────────────────────────────────────────── */
+
+.wrap {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #04080f; }
-::-webkit-scrollbar-thumb { background: rgba(34,211,238,0.2); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(34,211,238,0.4); }
-::selection { background: rgba(34,211,238,0.22); color: #f0f0f0; }
-
-/* ── Chip scan line ── */
-@keyframes scandown {
-  from { top: -2px; }
-  to   { top: 100%; }
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-/* ── Chip breathing glow — 5 staggered variants ── */
-@keyframes chip-breathe-0 {
-  0%,100% { box-shadow: 0 0 0 1px rgba(34,211,238,0.28), 0 0 14px rgba(34,211,238,0.10); }
-  50%     { box-shadow: 0 0 0 1px rgba(34,211,238,0.70), 0 0 28px rgba(34,211,238,0.28), 0 0 56px rgba(34,211,238,0.10); }
-}
-@keyframes chip-breathe-1 {
-  0%,100% { box-shadow: 0 0 0 1px rgba(34,211,238,0.22), 0 0 12px rgba(34,211,238,0.08); }
-  50%     { box-shadow: 0 0 0 1px rgba(34,211,238,0.65), 0 0 24px rgba(34,211,238,0.24), 0 0 48px rgba(34,211,238,0.09); }
-}
-@keyframes chip-breathe-2 {
-  0%,100% { box-shadow: 0 0 0 1px rgba(34,211,238,0.30), 0 0 16px rgba(34,211,238,0.12); }
-  50%     { box-shadow: 0 0 0 1px rgba(34,211,238,0.72), 0 0 32px rgba(34,211,238,0.30), 0 0 64px rgba(34,211,238,0.11); }
-}
-@keyframes chip-breathe-3 {
-  0%,100% { box-shadow: 0 0 0 1px rgba(34,211,238,0.20), 0 0 10px rgba(34,211,238,0.07); }
-  50%     { box-shadow: 0 0 0 1px rgba(34,211,238,0.60), 0 0 22px rgba(34,211,238,0.22), 0 0 44px rgba(34,211,238,0.08); }
-}
-@keyframes chip-breathe-4 {
-  0%,100% { box-shadow: 0 0 0 1px rgba(34,211,238,0.32), 0 0 18px rgba(34,211,238,0.13); }
-  50%     { box-shadow: 0 0 0 1px rgba(34,211,238,0.75), 0 0 36px rgba(34,211,238,0.32), 0 0 70px rgba(34,211,238,0.12); }
+.masthead h1,
+.masthead .name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
 }
 
-/* ── LED blink ── */
-@keyframes led-blink {
-  0%,100% { opacity: 0.25; }
-  50%     { opacity: 1; }
+.masthead .name a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* ── Silkscreen outline pulse ── */
-@keyframes silkscreen-pulse {
-  0%,100% { opacity: 0.12; }
-  50%     { opacity: 0.35; }
+.masthead .name a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* ── Email reveal shimmer ── */
-@keyframes email-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
+/* ── Type ─────────────────────────────────────────────────────────────── */
+
+p {
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.75rem;
+  letter-spacing: -0.005em;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+li .note {
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0 1.5rem;
+}
+
+.figure {
+  margin: 0 0 1.5rem;
+}
+
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
+
+.portrait {
+  margin: 0 0 2rem;
+}
+
+.portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
+
+.figure figcaption {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Scroll reveal ────────────────────────────────────────────────────────
+   Content is visible by default. The inline script in the root layout sets
+   data-reveal="on" only when the browser can observe scrolling and the
+   visitor hasn't asked for reduced motion, so no-JS and reduced-motion
+   readers get the prose immediately.
+   ───────────────────────────────────────────────────────────────────────── */
+
+[data-reveal="on"] .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+[data-reveal="on"] .reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal="on"] .reveal,
+  [data-reveal="on"] .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.section {
+  margin-bottom: 2.75rem;
+}
+
+.section p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/* Dense images (posters) break out past the reading column. */
+.figure.wide {
+  width: min(94vw, 1100px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-reveal="on"] .reveal .figure.wide {
+  transform: translateX(-50%) translateY(16px);
+}
+
+[data-reveal="on"] .reveal[data-shown="true"] .figure.wide {
+  transform: translateX(-50%);
+}
+
+.figure a {
+  display: block;
+  text-decoration: none;
+}
+
+.placeholder {
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── Theme toggle ─────────────────────────────────────────────────────── */
+
+.toggle {
+  flex-shrink: 0;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  border: 0;
+  padding: 3px;
+  background: var(--toggle-track);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.18s ease;
+}
+
+.toggle span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--toggle-knob);
+  transform: translateX(0);
+  transition: transform 0.18s ease;
+}
+
+[data-theme="dark"] .toggle span {
+  transform: translateX(20px);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--fg) 18%, transparent);
+}
+
+@media (max-width: 480px) {
+  body { font-size: 18px; }
+  .wrap { padding: 3rem 1.25rem 4rem; }
+  .masthead h1, .masthead .name { font-size: 1.75rem; }
 }

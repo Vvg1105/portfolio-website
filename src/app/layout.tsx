@@ -1,23 +1,60 @@
-import type { Metadata } from "next";
-import { Inter, Space_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Newsreader } from "next/font/google";
 import "./globals.css";
-import PCBBackground from "@/components/PCBBackground";
 
-const inter     = Inter({       subsets: ["latin"], variable: "--font-inter",  display: "swap" });
-const spaceMono = Space_Mono({ subsets: ["latin"], variable: "--font-mono",   display: "swap", weight: ["400","700"] });
+const serif = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Vansh Gadhia",
-  description: "EECS @ Stanford — Researcher, Builder, RISE Global Fellow.",
+  description:
+    "Vansh Gadhia is a junior at Stanford studying Electrical Engineering, working on bioelectronics and biohybrid devices.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+};
+
+// Runs before first paint so the page never flashes the wrong theme.
+const themeScript = `
+try {
+  var t = localStorage.getItem("theme");
+  if (t !== "light" && t !== "dark") {
+    t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.documentElement.setAttribute("data-theme", t);
+} catch (e) {}
+
+// Arm the scroll reveal before first paint so sections never flash in.
+// Only when the browser can observe and the visitor hasn't asked for less
+// motion; the timeout un-arms it if hydration never lands, so prose can
+// never be left permanently hidden.
+try {
+  var r = document.documentElement;
+  if ("IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    r.setAttribute("data-reveal", "on");
+    setTimeout(function () {
+      if (!r.hasAttribute("data-reveal-ready")) r.removeAttribute("data-reveal");
+    }, 2500);
+  }
+} catch (e) {}
+`;
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceMono.variable}`}>
-      <body className="min-h-screen antialiased">
-        <PCBBackground />
-        {children}
-      </body>
+    <html lang="en" className={serif.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
