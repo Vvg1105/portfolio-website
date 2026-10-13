@@ -26,28 +26,30 @@ export default function Page() {
       </figure>
 
       <p>
-        Vansh Gadhia is a junior at Stanford studying Electrical Engineering,
-        working on bioelectronics and biohybrid devices — where circuits meet
-        living tissue.
+        I&apos;m a junior at Stanford studying Electrical Engineering. I work
+        broadly around bioelectronics and biohybrid technology — electronics
+        built to live inside the body and work with living tissue rather than
+        against it.
       </p>
 
       <p>
-        He researches in the{" "}
+        In the{" "}
         <a
           href="https://krishnanlab.stanford.edu/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Krishnan Lab
-        </a>
-        , designing macroencapsulation devices for living cell therapeutics:
-        work aimed at Type 1 Diabetes and other conditions that need sustained
-        cell-based drug delivery.
+        </a>{" "}
+        I build implants that keep engineered cells alive under the skin, so
+        they can produce a drug continuously instead of the patient re-dosing. I
+        also work on biosensing, and on the wearables that power the implant and
+        talk to it from outside.
       </p>
 
       <p>
-        He is from Kenya and grew up in Dubai. He is a RISE Global Fellow, a
-        program run by Schmidt Futures and the Rhodes Trust.
+        I&apos;m from Kenya and grew up in Dubai. I&apos;m a Rise Global Winner,
+        a fellowship run by Schmidt Futures and the Rhodes Trust.
       </p>
 
       <h2>Projects</h2>

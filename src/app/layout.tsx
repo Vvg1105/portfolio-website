@@ -11,7 +11,7 @@ const serif = Newsreader({
 export const metadata: Metadata = {
   title: "Vansh Gadhia",
   description:
-    "Vansh Gadhia is a junior at Stanford studying Electrical Engineering, working on bioelectronics and biohybrid devices.",
+    "Vansh Gadhia — junior at Stanford studying Electrical Engineering, working on implants, biosensors, and wearables.",
 };
 
 export const viewport: Viewport = {
