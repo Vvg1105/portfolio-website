@@ -120,14 +120,14 @@ export const projects: Project[] = [
   {
     slug: "diabetes-kenya",
     name: "Early Diabetes Detection in Kenya",
-    tagline: "Screening for Type 2 Diabetes without the expensive blood test",
-    summary: "Screening for Type 2 Diabetes without the expensive blood test",
+    tagline: "Finding undiagnosed Type 2 Diabetes in rural Kenya",
+    summary: "Finding undiagnosed Type 2 Diabetes in rural Kenya",
     body: `
 Many Kenyans go undetected for Type 2 Diabetes and are diagnosed only once the damage — to eyes, kidneys, nerves — is already irreversible. The obstacle isn't medical knowledge. It's that confirming the disease takes a blood test that most people in rural areas can't afford or reach.
 
-For three years I led a project with Lions SightFirst Eye Hospital and Lions Diabetes Care to find those patients anyway: a model that flags who is at risk from what a clinic can collect cheaply, so the expensive test goes to the people most likely to need it.
+For three years I led a project with Lions SightFirst Eye Hospital and Lions Diabetes Care to find those patients earlier, using what a clinic can actually collect rather than what a well-equipped lab can.
 
-I secured IRB approval from the Kenyatta University Ethics Review Committee, designed the patient intake system, and interviewed over 500 participants across different tribal regions in the summer of 2022. The model works from demographics, basic clinical measurements, and retinal fundus images, which an inexpensive camera can capture. Gradient boosting beat a logistic regression baseline by 18% on AUC.
+I secured IRB approval from the Kenyatta University Ethics Review Committee, designed the patient intake system, and interviewed over 500 participants across different tribal regions in the summer of 2022, taking each diagnosis from the patient directly. The model combines demographics, clinical measurements (HbA1c, BMI, blood pressure), and retinal fundus images, which an inexpensive camera can capture. Gradient boosting beat a logistic regression baseline by 18% on AUC.
 
 It also found something I didn't expect: two tribes carrying a predisposition that held even after controlling for lifestyle factors. Local physicians still use the model, and that finding changes who you screen first.
 
