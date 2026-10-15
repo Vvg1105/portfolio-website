@@ -120,18 +120,18 @@ export const projects: Project[] = [
   {
     slug: "diabetes-kenya",
     name: "Early Diabetes Detection in Kenya",
-    tagline: "Finding undiagnosed diabetes where there are no diagnostics",
-    summary: "Finding undiagnosed diabetes where there are no diagnostics",
+    tagline: "Screening for Type 2 Diabetes without the expensive blood test",
+    summary: "Screening for Type 2 Diabetes without the expensive blood test",
     body: `
-Type 2 Diabetes is usually caught late in rural Kenya, because catching it early needs equipment and specialists that aren't there. By the time someone is diagnosed, the damage — to eyes, kidneys, nerves — is often already done. The problem isn't that the disease is hard to detect. It's that detection has to happen somewhere other than a well-equipped clinic.
+Many Kenyans go undetected for Type 2 Diabetes and are diagnosed only once the damage — to eyes, kidneys, nerves — is already irreversible. The obstacle isn't medical knowledge. It's that confirming the disease takes a blood test that most people in rural areas can't afford or reach.
 
-As lead investigator at Lions Diabetes Care and Lions SightFirst Eye Hospital in Nairobi, I built a screening pipeline for exactly that setting. I secured IRB approval from the Kenyatta University Ethics Review Committee, designed the patient intake system, and interviewed over 500 participants across different tribal regions in the summer of 2022.
+For three years I led a project with Lions SightFirst Eye Hospital and Lions Diabetes Care to find those patients anyway: a model that flags who is at risk from what a clinic can collect cheaply, so the expensive test goes to the people most likely to need it.
 
-The model combines what a community health worker can actually collect: demographics, basic clinical measurements (HbA1c, BMI, blood pressure), and retinal fundus images, which a cheap camera can capture. Gradient boosting outperformed a logistic regression baseline by 18% on AUC.
+I secured IRB approval from the Kenyatta University Ethics Review Committee, designed the patient intake system, and interviewed over 500 participants across different tribal regions in the summer of 2022. The model works from demographics, basic clinical measurements, and retinal fundus images, which an inexpensive camera can capture. Gradient boosting beat a logistic regression baseline by 18% on AUC.
 
-One finding I didn't expect: tribal ethnicity remained a statistically significant predictor even after controlling for lifestyle factors. That has real implications for how screening programs should be targeted, rather than applied uniformly.
+It also found something I didn't expect: two tribes carrying a predisposition that held even after controlling for lifestyle factors. Local physicians still use the model, and that finding changes who you screen first.
 
-We piloted an early warning system with local hospitals to flag high-risk individuals before symptoms appear — the point being to move diagnosis upstream, to where people actually are.
+Working on it surfaced a deeper problem than the one I set out to solve. Kenya's public hospitals share no centralized health database, so records don't follow patients between them. Tests get repeated, histories get lost, and any model is reasoning from a fraction of what is actually known about a person. Better algorithms don't fix that — shared infrastructure does.
     `.trim(),
     tech: ["Python", "scikit-learn", "XGBoost", "Pandas", "NumPy", "SQL"],
     date: "2021 – 2023",
