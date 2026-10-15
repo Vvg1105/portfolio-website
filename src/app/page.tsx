@@ -2,7 +2,7 @@ import Link from "next/link";
 import Masthead from "@/components/Masthead";
 import { projects, papers, media } from "@/lib/projectData";
 
-const EMAIL = "vanshg@stanford.edu";
+const EMAIL = "vanshg [at] stanford [dot] edu";
 const GITHUB = "https://github.com/Vvg1105";
 const LINKEDIN = "https://linkedin.com/in/vansh-gadhia/";
 const SCHOLAR = "https://scholar.google.com/citations?user=76HeMhsAAAAJ&hl=en";
@@ -62,7 +62,7 @@ export default function Page() {
         <a href={SCHOLAR} target="_blank" rel="noopener noreferrer">
           Google Scholar
         </a>
-        <a href={`mailto:${EMAIL}`}>Email</a>
+        <span className="email">{EMAIL}</span>
       </p>
 
       <h2>Projects</h2>

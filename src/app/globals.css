@@ -125,6 +125,16 @@ li .note {
   display: inline-block;
 }
 
+.links .email {
+  color: var(--muted);
+}
+
+.links .email::before {
+  content: "·";
+  color: var(--muted);
+  margin-right: 0.9rem;
+}
+
 .muted {
   color: var(--muted);
 }
