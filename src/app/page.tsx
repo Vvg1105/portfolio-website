@@ -62,6 +62,9 @@ export default function Page() {
         <a href={SCHOLAR} target="_blank" rel="noopener noreferrer">
           Google Scholar
         </a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
         <span className="email">{EMAIL}</span>
       </p>
 
