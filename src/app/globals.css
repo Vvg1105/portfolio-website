@@ -109,6 +109,22 @@ li .note {
   color: var(--muted);
 }
 
+/* Inline row of social links, middot-separated. */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  margin: 0 0 2.25rem;
+}
+
+.links a + a::before {
+  content: "·";
+  color: var(--muted);
+  margin-right: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .muted {
   color: var(--muted);
 }

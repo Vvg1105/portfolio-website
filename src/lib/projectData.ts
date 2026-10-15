@@ -118,6 +118,28 @@ export const projects: Project[] = [
     images: [],
   },
   {
+    slug: "diabetes-kenya",
+    name: "Early Diabetes Detection in Kenya",
+    tagline: "Finding undiagnosed diabetes where there are no diagnostics",
+    summary: "Finding undiagnosed diabetes where there are no diagnostics",
+    body: `
+Type 2 Diabetes is usually caught late in rural Kenya, because catching it early needs equipment and specialists that aren't there. By the time someone is diagnosed, the damage — to eyes, kidneys, nerves — is often already done. The problem isn't that the disease is hard to detect. It's that detection has to happen somewhere other than a well-equipped clinic.
+
+As lead investigator at Lions Diabetes Care and Lions SightFirst Eye Hospital in Nairobi, I built a screening pipeline for exactly that setting. I secured IRB approval from the Kenyatta University Ethics Review Committee, designed the patient intake system, and interviewed over 500 participants across different tribal regions in the summer of 2022.
+
+The model combines what a community health worker can actually collect: demographics, basic clinical measurements (HbA1c, BMI, blood pressure), and retinal fundus images, which a cheap camera can capture. Gradient boosting outperformed a logistic regression baseline by 18% on AUC.
+
+One finding I didn't expect: tribal ethnicity remained a statistically significant predictor even after controlling for lifestyle factors. That has real implications for how screening programs should be targeted, rather than applied uniformly.
+
+We piloted an early warning system with local hospitals to flag high-risk individuals before symptoms appear — the point being to move diagnosis upstream, to where people actually are.
+    `.trim(),
+    tech: ["Python", "scikit-learn", "XGBoost", "Pandas", "NumPy", "SQL"],
+    date: "2021 – 2023",
+    hasPage: true,
+    links: [],
+    images: [],
+  },
+  {
     slug: "maestro",
     name: "Maestro",
     tagline: "Turns a broom into a playable guitar",
@@ -138,24 +160,6 @@ The whole system runs in real time — a Python WebSocket server streaming webca
       { label: "GitHub", url: "https://github.com/Vvg1105/maestro-treehacks" },
       { label: "Devpost", url: "https://devpost.com/software/maestro-n0uqyz" },
     ],
-    images: [],
-  },
-  {
-    slug: "diabetes-predictor",
-    name: "Type 2 Diabetes Risk Predictor",
-    tagline: "ML pipeline for diabetes risk in under-resourced populations",
-    summary: "ML pipeline for diabetes risk in under-resourced populations",
-    body: `
-Developed as part of my lead investigator role at Lions Diabetes Care in Nairobi, this ML pipeline tackles early diabetes detection in populations with limited access to advanced diagnostics.
-
-The model was trained on 500+ patient records collected during summer 2022, combining demographic data, clinical measurements (HbA1c, BMI, blood pressure), and retinal fundus images. XGBoost outperformed baseline logistic regression by 18% on AUC.
-
-A key finding: tribal ethnicity was a statistically significant predictor even after controlling for lifestyle factors — a novel correlation that has implications for population-targeted screening programs.
-    `.trim(),
-    tech: ["Python", "scikit-learn", "XGBoost", "Pandas", "NumPy", "SQL", "matplotlib"],
-    date: "2022 – 2023",
-    hasPage: true,
-    links: [],
     images: [],
   },
   {

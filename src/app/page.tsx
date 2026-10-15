@@ -52,6 +52,19 @@ export default function Page() {
         a fellowship run by Schmidt Futures and the Rhodes Trust.
       </p>
 
+      <p className="links">
+        <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href={SCHOLAR} target="_blank" rel="noopener noreferrer">
+          Google Scholar
+        </a>
+        <a href={`mailto:${EMAIL}`}>Email</a>
+      </p>
+
       <h2>Projects</h2>
       <ul>
         {featured.map((p) => (
@@ -109,27 +122,6 @@ export default function Page() {
         ))}
       </ul>
 
-      <h2>Elsewhere</h2>
-      <ul>
-        <li>
-          <a href={GITHUB} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href={SCHOLAR} target="_blank" rel="noopener noreferrer">
-            Google Scholar
-          </a>
-        </li>
-        <li>
-          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-        </li>
-      </ul>
     </main>
   );
 }
